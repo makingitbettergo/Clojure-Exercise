@@ -89,7 +89,7 @@
     2))
 
 ;format command for customized string construction
-(println (format "Hello, %s!" "Dave"))
+(println (format "Hello, %s! %b %d %f" "Dave" true 1 2.0))
 
 ;regonize the difference between map function and map data structure
 (println (map #(+ % 3) '(1 2 3)))
