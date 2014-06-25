@@ -12,3 +12,4 @@
 (divide 1 3)
 ;division in float form
 (divide 1.0 4)
+;so I would guess the same process will be applied to the rest operations.
