@@ -19,6 +19,13 @@
 (println(str (re-seq #"[A]+" "AABAA")))
 (println(str (re-seq #"[A]" "AAAA")))
 
+;here are more detailed tests on apply
+(println(apply max [1 2 3]))
+;so the difference between these two is apply wrap the max function as 
+;an argument and apply the result of the fn
+(println(max [1 2 3]))
+(println(min [1 2 3]))
+
 ;reduce this example is from Clojure doc.
 ;in this example, the function holds a vector and a number
 (reduce 
@@ -27,4 +34,16 @@
           primes
           (conj primes number)))
 [2]
-(take 10000 (iterate inc 3)))
+(take 100 (iterate inc 3)))
+
+;a simple use of reduce
+(println(reduce 
+         (fn [num1 num2]
+           (+ num1 num2))
+         [1 2 3 4 5]))
+;a different version, works the same; thus reduce does not require
+;the argument to be functions
+(println (reduce + [1 2 3 4 5]))
+
+;it even take different types; however, it seems not taking two vecs or lsts
+(println (reduce + 1 [1 2 3 4 5]))
