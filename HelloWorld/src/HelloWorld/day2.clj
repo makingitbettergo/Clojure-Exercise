@@ -67,3 +67,15 @@
 (println(if false 0 1))
 (println(if true 0 1))
 
+;this is about rerrange code, as we did in the previous practice,
+;the code below is a bit difficult for new lispers to read
+(reduce (
+          fn [n1 n2] 
+          (+ n1 n2))
+        (map inc 
+             (take 3 
+                   (drop 2 
+                         [2 5 4 1 3 6]))))
+;an alternative version with better readability
+(->> [2 5 4 1 3 6] 
+  (drop 2) (take 3) (map inc) (reduce (fn [n1 n2] (+ n1 n2))))
