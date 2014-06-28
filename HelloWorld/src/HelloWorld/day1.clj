@@ -47,3 +47,52 @@
 
 ;it even take different types; however, it seems not taking two vecs or lsts
 (println (reduce + 1 [1 2 3 4 5]))
+
+(sort (rest (reverse [2 5 4 1 3 6])))
+
+(-> [2 5 4 1 3 6] (reverse) (rest) (sort))
+
+;in the question, people said last function is bad approach
+(last '(1 2 3 4 5))
+(last [1 2 3 4 5])
+
+;the other way to get the last element
+;and be aware of the brackets that encloses the functions
+((comp first reverse) [1 2 3 4 5])
+
+((comp second reverse) ["a" "b" "c"])
+
+;rearrange code, apparently the version 2 is more readable
+(println(last (sort (rest (reverse [2 5 4 1 3 6])))))
+;i have chosen this to be my coding style
+(println(-> [2 5 4 1 3 6] (reverse) (rest) (sort) (last)))
+
+;loop
+(loop [x 5 
+       result []]
+ (if(> x 0)
+  (recur (dec x) (conj result (+ 2 x)))))
+
+(def factorial
+  (fn [n]
+    (loop [cnt n acc 1]
+      (if (zero? cnt)
+        acc
+        (recur (dec cnt) (* acc cnt))))))
+(factorial 5)
+
+;another loop example, easier version
+(loop [i 0]
+  (when (< i 5)
+    (println (format "Current number is %d" i))
+    (recur (inc i))))
+
+;the same implementation with if
+;the difference between when and if is when seems read
+;more than one line (or operations), if can only read the statement 
+;right after the condition
+(loop [i 0]
+  (if (< i 5)
+    (println (format "Current number is %d" i))
+    (recur (inc i))))
+
