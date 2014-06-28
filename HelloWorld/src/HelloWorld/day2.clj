@@ -47,3 +47,23 @@
 
 (for [[x y] (partition 2 (range 20))]
   (+ x y))
+;from my observation, for seems not working in the same way as it does in Java
+;from my previous experience with loop, loop needs to work with recur keyword
+
+(for [i [1 2 3]] (* 2 i))
+;in the above example, i can be treated as a temp the vec is the range.
+;the following expression shows i accesses the range.
+
+;in this example, tried for work with vector and list, possibly any sequence.
+(for [i ["Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday" "Sunday"]
+      :when (not= i "Saturday")
+      :when (not= i  "Sunday")]
+  (format "Yue goes to school on %s" i))
+;guess :when is a special symbol, in this for, :when works as a conditioner.
+
+;logic if-not is the negation operation of if statement
+(println(if-not false 1 12))
+(println(if-not true 12 "hi" ))
+(println(if false 0 1))
+(println(if true 0 1))
+
