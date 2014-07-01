@@ -14,3 +14,7 @@ Copyright © 2014 go-mk01
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
+
+
+The files under koans package are from https://github.com/functional-koans/clojure-koans
+I do not own any right from it.

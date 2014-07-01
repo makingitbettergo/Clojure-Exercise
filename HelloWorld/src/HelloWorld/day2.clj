@@ -18,11 +18,13 @@
     (recur (inc s)))))
 
 (routine 1)
+
 ; so far got no clue about how to make a for loop in Clojure
 ;this is an advice from web. the person suggests using map as a for loop
 ;THIS IS NOT RETURN ANYTHING.
 (println(map (fn [x] x)
              ["Monday" "Tuesday" "Wednesday"]))
+
 ;standard print always return nil.
 (println(map (fn [x] 
                (print (format "%s " x)
@@ -37,6 +39,7 @@
 (for [x (range 40) 
       :when (= 1 (rem x 4))]
   x)
+
 ;these for loop operations need extra attention
 ;as I found these are more complex than the loops in Java
 ;most of all, these loops involve deep math concept behind the scene
@@ -77,5 +80,5 @@
                    (drop 2 
                          [2 5 4 1 3 6]))))
 ;an alternative version with better readability
-(->> [2 5 4 1 3 6] 
+(->> [2 5 4 1 3 6]
   (drop 2) (take 3) (map inc) (reduce (fn [n1 n2] (+ n1 n2))))
