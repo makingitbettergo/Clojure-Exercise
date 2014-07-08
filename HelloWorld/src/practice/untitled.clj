@@ -28,8 +28,13 @@
 
 (last (take 2 '(1 3 5)))
 
+;this is a recursion solution...
 (fn f [p n]
   (if (= n 0)
     (first p)
     (f (rest p) (- n 1))))
-;this is a recursion solution...
+
+; assign all the elements with a value
+((fn [v m]
+   (zipmap m (repeat v)))
+   0 [:a :b :c])
